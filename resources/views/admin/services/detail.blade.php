@@ -148,7 +148,7 @@
                                             <div class="w-1/2 mr-3 mt-4 mobile-input">
                                                 <label for="logo"
                                                        class="block text-sm font-medium text-gray-700">@lang('common.current_logo')</label>
-                                                <div class="p-3"><img style="width: 200px" src="/{{$service->logo}}">
+                                                <div class="p-3"><img style="width: 200px" src="/storage/{{$service->logo}}">
                                                 </div>
 
                                             </div>

@@ -35,13 +35,12 @@ class SliderController extends Controller
             //$path = $request->file('slider')->store('sliders');
 
             $slider = Slider::create([
-                'image' => env('APP_URL'). '/' .explode('public/', $path)[1]
+                'image' => env('APP_URL'). '/storage/' .explode('public/', $path)[1]
             ]);
 
             return redirect()->route('slider.list')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.created')])));
 
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             return redirect()->route('slider.list')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
 
         }

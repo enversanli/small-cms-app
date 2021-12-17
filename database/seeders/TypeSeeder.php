@@ -16,12 +16,12 @@ class TypeSeeder extends Seeder
     {
         $types = [
             [
-                'title' => 'first',
-                'text' => 'First'
+                'title' => 'Tech',
+                'text' => 'Tech'
             ],
             [
-                'title' => 'second',
-                'text' => 'Second'
+                'title' => 'Community',
+                'text' => 'Community'
             ]
         ];
         foreach ($types as $type){

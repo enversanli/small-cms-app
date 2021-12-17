@@ -20,7 +20,7 @@ class ServiceController extends Controller
     public function show($id){
         $service = Service::with(['guide', 'questions', 'systemRequirement'])->findOrFail($id);
 
-        $videoId = 12;
+        $videoId = null;
         if (isset($service->guide) && isset($service->guide->youtube_url)){
             $videoId = explode('?v=', $service->guide->youtube_url);
             $videoId = isset($videoId[1]) ? $videoId[1] : $videoId;

@@ -10,6 +10,6 @@
 
 @section('content')
     <div class="py-10">
-        <service-detail-component :service="{{$service}}" :youtubeImgId="{{$youtubeImgId}}"></service-detail-component>
+        <service-detail-component :service="{{$service}}" ></service-detail-component>
     </div>
 @endsection

@@ -48,7 +48,7 @@
                         <div class="">
                             <div class="h-24 service-logo pl-2 mx-auto float-left">
                                 <img class="h-24 w-24 my-3 rounded-full"
-                                     :src="'/'+service.logo">
+                                     :src="'/storage/'+service.logo">
                             </div>
                             <div class="float-left service-content text-left">
                                 <h2 class="text-theme-color text-left ml-3 my-3 text-2xl title font-weight-bold">
@@ -234,12 +234,12 @@
 <!--            </a>-->
 
         </div>
-        <div class="w-full">
-            <button
-                class="block mx-auto bpy-1 px-2 bg-theme-color text-white text-xl rounded shadow-sm transition duration-300 hover:bg-red-700"
-                v-if="loadMore" @click="load"><i class="fas fa-arrow-down"></i> Load More
-            </button>
-        </div>
+<!--        <div class="w-full">-->
+<!--            <button-->
+<!--                class="block mx-auto bpy-1 px-2 bg-theme-color text-white text-xl rounded shadow-sm transition duration-300 hover:bg-red-700"-->
+<!--                v-if="loadMore" @click="load"><i class="fas fa-arrow-down"></i> Load More-->
+<!--            </button>-->
+<!--        </div>-->
     </div>
 </template>
 

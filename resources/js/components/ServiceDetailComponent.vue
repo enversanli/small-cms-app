@@ -30,7 +30,7 @@
                 <div class="" v-if="serviceBlock">
                     <div class="h-28 w-28 mx-auto">
                         <img class="h-full w-full my-3 rounded-full"
-                             :src="'/'+service.logo">
+                             :src="'/storage/'+service.logo">
                     </div>
                     <h2 class="text-black text-center my-3 text-4xl animate__animated animate__fadeIn">
                         {{ service.title }}</h2>
@@ -175,9 +175,6 @@
                 <div class="animate__animated animate__fadeIn" v-else>
                     <p class="w-full text-2xl text-center my-10">Not found for this service.</p>
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -198,7 +195,6 @@ export default {
     },
 
     mounted() {
-        console.log(this.service.system_requirement);
         if (this.service.rating === 'not_rated') {
             this.service.rating = 'Not Rated';
         }

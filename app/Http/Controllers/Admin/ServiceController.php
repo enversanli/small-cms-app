@@ -66,12 +66,13 @@ class ServiceController extends Controller
             if (isset($request->logo)) {
                 $logoName = $request->file('logo')->getClientOriginalName();
                 $logoPath = $request->file('logo')->store('public/services');
-
+                $logoPath = str_replace('public/', '', $logoPath);
             }
 
             if (isset($request->image)) {
                 $imageName = $request->file('image')->getClientOriginalName();
                 $imagePath = $request->file('image')->store('public/services');
+                $imagePath = str_replace('public/', '', $imagePath);
             }
 
 
@@ -86,14 +87,14 @@ class ServiceController extends Controller
                 'rewards' => $request->rewards,
                 'rating' => $request->rating,
                 'hardware' => $request->hardware,
-                'complexity' => $request->complexity
+                'complexity' => $request->complexity,
+                'lock' => $request->lock
             ]);
 
             $service->types()->sync($request->types);
 
             return redirect()->route('service.create')->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.created')])));
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             return redirect()->route('service.create')->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
         }
 
@@ -175,7 +176,6 @@ class ServiceController extends Controller
 
             return redirect()->route('service.show', $service->id)->with('message', $this->responseHelper->success(__('response.success'), __('response.successMessage', ['param' => __('common.updated')])));
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             return redirect()->route('service.show', $service->id)->with('message', $this->responseHelper->error(__('response.error'), __('response.went_wrong')));
 
         }
