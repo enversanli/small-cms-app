@@ -22,7 +22,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-Auth::routes();
+Route::prefix('test-net/run')->group(function (){
+    Auth::routes();
+});
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('csrf', function () {
@@ -30,6 +34,13 @@ Route::get('csrf', function () {
 });
 
 Route::prefix('admin')->middleware('auth')->group(function () {
+
+    Route::prefix('profile')->group(function (){
+        Route::get('/', [\App\Http\Controllers\Admin\ProfileController::class, 'show'])->name('profile');
+        Route::post('/', [\App\Http\Controllers\Admin\ProfileController::class, 'update'])->name('profile.update');
+    });
+
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

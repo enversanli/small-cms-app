@@ -88,4 +88,10 @@ return [
     'update_sliders' => 'Update Sliders',
     'not_found_slider' => 'You don\'t have any slider yet.',
     'create_new_slider' => 'Create a new slider',
+
+
+    'name' => 'Name',
+    'profile' => 'Profile',
+    'password' => 'Password',
+    'password_confirmation' => 'Password Confirmation',
 ];

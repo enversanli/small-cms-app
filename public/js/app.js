@@ -2591,7 +2591,8 @@ __webpack_require__.r(__webpack_exports__);
       links: '',
       loadMore: true,
       test: [],
-      goBack: false
+      goBack: false,
+      active: true
     };
   },
   mounted: function mounted() {
@@ -2611,6 +2612,13 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      if (status === 'Ended') {
+        this.active = false;
+      } else {
+        this.active = true;
+      }
+
       var url = '/services?status=' + status;
 
       if (status === null) {
@@ -2855,9 +2863,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['service', 'youtubeImgId'],
   data: function data() {
@@ -2870,8 +2875,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    console.log(this.service.system_requirement);
-
     if (this.service.rating === 'not_rated') {
       this.service.rating = 'Not Rated';
     }
@@ -39690,6 +39693,7 @@ var render = function () {
             {
               staticClass:
                 "h-9 m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn",
+              class: [_vm.active === true ? "shadow-xl active-service" : ""],
               on: {
                 click: function ($event) {
                   return _vm.filterServices("Active")
@@ -39704,6 +39708,7 @@ var render = function () {
             {
               staticClass:
                 "h-9  m-3 p-1 bg-white shadow-md rounded-lg transition duration-700 hover:shadow-xl cursor-pointer animate__animated animate__fadeIn ",
+              class: [_vm.active === false ? "shadow-xl active-service" : ""],
               on: {
                 click: function ($event) {
                   return _vm.filterServices("Ended")
@@ -39784,7 +39789,7 @@ var render = function () {
                       [
                         _c("img", {
                           staticClass: "h-24 w-24 my-3 rounded-full",
-                          attrs: { src: "/" + service.logo },
+                          attrs: { src: "/storage/" + service.logo },
                         }),
                       ]
                     ),
@@ -39799,12 +39804,7 @@ var render = function () {
                             staticClass:
                               "text-theme-color text-left ml-3 my-3 text-2xl title font-weight-bold",
                           },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(service.title)
-                            ),
-                          ]
+                          [_vm._v("\n              " + _vm._s(service.title))]
                         ),
                         _vm._v(" "),
                         service.requirements
@@ -39825,7 +39825,7 @@ var render = function () {
                                       }),
                                       _c("small", [_vm._v("CPU:")]),
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                  " +
                                           _vm._s(service.requirements.cpu)
                                       ),
                                     ]),
@@ -39836,7 +39836,7 @@ var render = function () {
                                       }),
                                       _c("small", [_vm._v("RAM:")]),
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                  " +
                                           _vm._s(service.requirements.ram)
                                       ),
                                     ]),
@@ -39853,7 +39853,7 @@ var render = function () {
                                       }),
                                       _c("small", [_vm._v("STORAGE:")]),
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                  " +
                                           _vm._s(service.requirements.storage)
                                       ),
                                     ]),
@@ -39865,7 +39865,7 @@ var render = function () {
                                       }),
                                       _c("small", [_vm._v("NETWORK:")]),
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                  " +
                                           _vm._s(service.requirements.network)
                                       ),
                                     ]),
@@ -39976,7 +39976,7 @@ var render = function () {
                                   { staticClass: "inline w-auto px-1 text-lg" },
                                   [
                                     _vm._v(
-                                      "\n                                        " +
+                                      "\n                " +
                                         _vm._s(type.title) +
                                         " "
                                     ),
@@ -39997,23 +39997,6 @@ var render = function () {
         }),
         0
       ),
-      _vm._v(" "),
-      _c("div", { staticClass: "w-full" }, [
-        _vm.loadMore
-          ? _c(
-              "button",
-              {
-                staticClass:
-                  "block mx-auto bpy-1 px-2 bg-theme-color text-white text-xl rounded shadow-sm transition duration-300 hover:bg-red-700",
-                on: { click: _vm.load },
-              },
-              [
-                _c("i", { staticClass: "fas fa-arrow-down" }),
-                _vm._v(" Load More\n            "),
-              ]
-            )
-          : _vm._e(),
-      ]),
     ],
     1
   )
@@ -40287,7 +40270,7 @@ var render = function () {
                       _c("div", { staticClass: "h-28 w-28 mx-auto" }, [
                         _c("img", {
                           staticClass: "h-full w-full my-3 rounded-full",
-                          attrs: { src: "/" + _vm.service.logo },
+                          attrs: { src: "/storage/" + _vm.service.logo },
                         }),
                       ]),
                       _vm._v(" "),
