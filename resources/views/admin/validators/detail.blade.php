@@ -48,7 +48,10 @@
                                         <div class="flex w-full mobile-companent">
                                             <div class="w-full mr-3 mt-4 mobile-input">
                                                 <x-label for="date_to" :value="__('common.text')"/>
-                                                <textarea name="text" class="border border-gray-300 w-full" style="min-height: 300px">{{$validator->text}}</textarea>
+{{--                                                <textarea name="text" class="border border-gray-300 w-full" style="min-height: 300px">{{$validator->text}}</textarea>--}}
+                                                <textarea style="margin-top: 50px" name="text" id="editor">
+                                                        {{$validator->text}}
+                                                    </textarea>
                                             </div>
                                         </div>
                                         <div class="flex items-center justify-end mt-4">
@@ -68,3 +71,6 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>

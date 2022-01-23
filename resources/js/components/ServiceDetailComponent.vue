@@ -6,19 +6,19 @@
             <ul class="p-4 text-2xl uppercase">
                 <li class="my-3 cursor-pointer transition duration-300 hover:pl-2" @click="setBlock('service')"><i class="fas fa-flag mr-2"></i> Service
                 </li>
-                <li class="my-3 cursor-pointer" @click="setBlock('guide')"><i class="fas fa-book-open mr-2"></i> Guide
+                <li class="my-3 cursor-pointer" @click="setBlock('guide')"><i class="fas fa-book-open mr-2"></i> Rehber
                 </li>
-                <li class="my-3 cursor-pointer" @click="setBlock('hardware')"><i class="fas fa-server"></i> Hardware
+                <li class="my-3 cursor-pointer" @click="setBlock('hardware')"><i class="fas fa-server"></i> Donanım
                 </li>
-                <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i> Faq</li>
-                <li class="my-3 cursor-pointer" @click="setBlock('faq')" v-if="service.guide && service.guide.get_in_url"><a :href="service.guide.get_in_url" target="_blank"><i class="fas fa-external-link-alt"></i> Get In</a></li>
+                <li class="my-3 cursor-pointer" @click="setBlock('faq')"><i class="fas fa-question mr-2"></i> Sıkça Sorulan Sorular</li>
+                <li class="my-3 cursor-pointer" @click="setBlock('faq')" v-if="service.guide && service.guide.get_in_url"><a :href="service.guide.get_in_url" target="_blank"><i class="fas fa-external-link-alt"></i> Bağlantı</a></li>
             </ul>
         </div>
         <div class="2xl:service-detail-content lg:service-detail-content md:w-full sm:w-full w-full float-left">
             <div class="h-auto m-3 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 ">
                 <div class="flex">
-                    <div class="flex-grow lg:text-left md:text-left text-2xl"><b>Status:</b> <span
-                        :class="statusColor" class="font-weight-bold text-red-600">{{ service.status }}</span></div>
+                    <div class="flex-grow lg:text-left md:text-left text-2xl"><b>Durum:</b> <span
+                        :class="statusColor" class="font-weight-bold text-red-600 rounded-full h-7 w-7 inline-block -mb-1.5"></span></div>
                     <div class="flex-grow text-right md:text-right text-2xl">
                         <a :href="service.guide.twitter" target="_blank" v-if="service.guide && service.guide.twitter !== null"><i class="fab fa-twitter inline-block transition duration-300 hover:text-theme-color"></i></a>
                         <a :href="service.guide.telegram" target="_blank" v-if="service.guide && service.guide.telegram !== null"><i class="fab fa-telegram-plane inline-block transition duration-300 hover:text-theme-color"></i></a>
@@ -41,14 +41,14 @@
                     <hr>
                     <div class="lg:flex w-full p-3 text-3xl border border-black">
                         <div class="lg:w-1/2 sm:w-full">
-                            <p class="my-3"><b>Rating:</b> {{ service.rating }}</p>
+                            <p class="my-3"><b>Puanlama:</b> {{ service.rating }}</p>
                             <!--<p class="my-3"><b>Hardware:</b> {{ service.hardware }}</p>-->
-                            <p><b>Complexity:</b> <span v-if="parseInt(service.complexity) !== 0"><i
+                            <p><b>Güçlük:</b> <span v-if="parseInt(service.complexity) !== 0"><i
                                 class="fas fa-wrench" v-for="(n, i) in parseInt(service.complexity)"></i></span></p>
                         </div>
                         <div class="w-1/2">
-                            <p class="my-3"><b>Rewards:</b> {{ service.rewards }}</p>
-                            <p class="my-3"><b>Lock:</b> {{ service.lock }}</p>
+                            <p class="my-3"><b>Ödül:</b> {{ service.rewards }}</p>
+                            <p class="my-3"><b>Kilit:</b> {{ service.lock }}</p>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                     <h2 class="text-black text-center my-3 text-4xl animate__animated animate__backInLeft">
                         {{ service.title }}</h2>
                     <div v-html="service.guide.text"
-                         class="w-full text-justify text-xl p-3 animate__animated animate__backInRight">
+                         class="w-full text-left text-xl p-3 animate__animated animate__backInRight guide-content">
 
                     </div>
                     <p class="text-center" v-for="type in service.types">{{ type.title }}</p>
@@ -114,7 +114,7 @@
 
                                 <div class="lg:flex w-full p-3 text-3xl border border-black">
                                     <div class="w-full">
-                                        <p class="my-3"><b>RAM:</b> {{ service.system_requirement.ram }}</p>
+                                        <p class="my-3"><b>Ram:</b> {{ service.system_requirement.ram }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
 
                                 <div class="lg:flex w-full p-3 text-3xl border border-black">
                                     <div class="w-full">
-                                        <p class="my-3"><b>CPU:</b> {{ service.system_requirement.cpu }}</p>
+                                        <p class="my-3"><b>İşlemci:</b> {{ service.system_requirement.cpu }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@
 
                                 <div class="lg:flex w-full p-3 text-3xl border border-black">
                                     <div class="w-full">
-                                        <p class="my-3"><b>STORAGE:</b> {{ service.system_requirement.storage }}</p>
+                                        <p class="my-3"><b>Depolama:</b> {{ service.system_requirement.storage }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
 
                                 <div class="lg:flex w-full p-3 text-3xl border border-black">
                                     <div class="w-full">
-                                        <p class="my-3"><b>NETWORK:</b> {{ service.system_requirement.network }}</p>
+                                        <p class="my-3"><b>Ağ:</b> {{ service.system_requirement.network }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -196,25 +196,25 @@ export default {
 
     mounted() {
         if (this.service.rating === 'not_rated') {
-            this.service.rating = 'Not Rated';
+            this.service.rating = 'Puanlanmadı';
         }
 
         if (this.service.rating === 'promising') {
-            this.service.rating = 'Promising';
+            this.service.rating = 'Umut Verici';
         }
 
         if (this.service.rating === 'high') {
-            this.service.rating = 'High';
+            this.service.rating = 'Yüksek';
         }
 
         if (this.service.status === 'Active') {
-            this.statusColor = 'text-green-600';
+            this.statusColor = 'bg-green-600';
         }
         if (this.service.status === 'Upcoming') {
-            this.statusColor = 'text-yellow-600';
+            this.statusColor = 'bg-yellow-600';
         }
         if (this.service.status === 'Ended') {
-            this.statusColor = 'text-red-600';
+            this.statusColor = 'bg-red-600';
         }
     },
 

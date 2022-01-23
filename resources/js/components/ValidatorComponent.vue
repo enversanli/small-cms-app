@@ -3,7 +3,6 @@
         <div class="lg:flex md:w-full">
             <div class="float-left md:w-full sm:w-full">
                 <div class="h-auto m-3 bg-white shadow-md rounded-lg transition duration-300 hover:shadow-xl p-3 ">
-
                     <div class="animate__animated animate__fadeIn" v-if="validators.length > 0">
                         <div class="w-full  lg:w-full mx-auto relative 2xl:p-20 xl:p-20 lg:p-20 md:p-20 sm:p-10">
                             <h1 class="text-3xl text-center font-bold text-black">Validators</h1>
@@ -19,7 +18,7 @@
 
                                     <div class="flex-auto">
                                         <h1 class="text-xl font-bold">{{ validator.title }}</h1>
-                                        <h3>{{ validator.text }}</h3>
+                                        <p v-html="validator.text" class="html-content"></p>
                                     </div>
                                 </div>
                             </div>
@@ -28,8 +27,6 @@
                     <div class="animate__animated animate__fadeIn" v-else>
                         <p class="w-full text-2xl text-center my-10">Not found any validator.</p>
                     </div>
-
-
                 </div>
             </div>
         </div>

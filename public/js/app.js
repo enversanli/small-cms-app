@@ -2876,27 +2876,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     if (this.service.rating === 'not_rated') {
-      this.service.rating = 'Not Rated';
+      this.service.rating = 'Puanlanmadı';
     }
 
     if (this.service.rating === 'promising') {
-      this.service.rating = 'Promising';
+      this.service.rating = 'Umut Verici';
     }
 
     if (this.service.rating === 'high') {
-      this.service.rating = 'High';
+      this.service.rating = 'Yüksek';
     }
 
     if (this.service.status === 'Active') {
-      this.statusColor = 'text-green-600';
+      this.statusColor = 'bg-green-600';
     }
 
     if (this.service.status === 'Upcoming') {
-      this.statusColor = 'text-yellow-600';
+      this.statusColor = 'bg-yellow-600';
     }
 
     if (this.service.status === 'Ended') {
-      this.statusColor = 'text-red-600';
+      this.statusColor = 'bg-red-600';
     }
   },
   methods: {
@@ -3055,9 +3055,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
 //
 //
 //
@@ -40082,7 +40079,7 @@ var render = function () {
               },
               [
                 _c("i", { staticClass: "fas fa-book-open mr-2" }),
-                _vm._v(" Guide\n            "),
+                _vm._v(" Rehber\n            "),
               ]
             ),
             _vm._v(" "),
@@ -40098,7 +40095,7 @@ var render = function () {
               },
               [
                 _c("i", { staticClass: "fas fa-server" }),
-                _vm._v(" Hardware\n            "),
+                _vm._v(" Donanım\n            "),
               ]
             ),
             _vm._v(" "),
@@ -40112,7 +40109,10 @@ var render = function () {
                   },
                 },
               },
-              [_c("i", { staticClass: "fas fa-question mr-2" }), _vm._v(" Faq")]
+              [
+                _c("i", { staticClass: "fas fa-question mr-2" }),
+                _vm._v(" Sıkça Sorulan Sorular"),
+              ]
             ),
             _vm._v(" "),
             _vm.service.guide && _vm.service.guide.get_in_url
@@ -40137,7 +40137,7 @@ var render = function () {
                       },
                       [
                         _c("i", { staticClass: "fas fa-external-link-alt" }),
-                        _vm._v(" Get In"),
+                        _vm._v(" Bağlantı"),
                       ]
                     ),
                   ]
@@ -40168,16 +40168,13 @@ var render = function () {
                     staticClass: "flex-grow lg:text-left md:text-left text-2xl",
                   },
                   [
-                    _c("b", [_vm._v("Status:")]),
+                    _c("b", [_vm._v("Durum:")]),
                     _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass: "font-weight-bold text-red-600",
-                        class: _vm.statusColor,
-                      },
-                      [_vm._v(_vm._s(_vm.service.status))]
-                    ),
+                    _c("span", {
+                      staticClass:
+                        "font-weight-bold text-red-600 rounded-full h-7 w-7 inline-block -mb-1.5",
+                      class: _vm.statusColor,
+                    }),
                   ]
                 ),
                 _vm._v(" "),
@@ -40319,12 +40316,12 @@ var render = function () {
                         [
                           _c("div", { staticClass: "lg:w-1/2 sm:w-full" }, [
                             _c("p", { staticClass: "my-3" }, [
-                              _c("b", [_vm._v("Rating:")]),
+                              _c("b", [_vm._v("Puanlama:")]),
                               _vm._v(" " + _vm._s(_vm.service.rating)),
                             ]),
                             _vm._v(" "),
                             _c("p", [
-                              _c("b", [_vm._v("Complexity:")]),
+                              _c("b", [_vm._v("Güçlük:")]),
                               _vm._v(" "),
                               parseInt(_vm.service.complexity) !== 0
                                 ? _c(
@@ -40345,12 +40342,12 @@ var render = function () {
                           _vm._v(" "),
                           _c("div", { staticClass: "w-1/2" }, [
                             _c("p", { staticClass: "my-3" }, [
-                              _c("b", [_vm._v("Rewards:")]),
+                              _c("b", [_vm._v("Ödül:")]),
                               _vm._v(" " + _vm._s(_vm.service.rewards)),
                             ]),
                             _vm._v(" "),
                             _c("p", { staticClass: "my-3" }, [
-                              _c("b", [_vm._v("Lock:")]),
+                              _c("b", [_vm._v("Kilit:")]),
                               _vm._v(" " + _vm._s(_vm.service.lock)),
                             ]),
                           ]),
@@ -40379,7 +40376,7 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", {
                         staticClass:
-                          "w-full text-justify text-xl p-3 animate__animated animate__backInRight",
+                          "w-full text-left text-xl p-3 animate__animated animate__backInRight guide-content",
                         domProps: { innerHTML: _vm._s(_vm.service.guide.text) },
                       }),
                       _vm._v(" "),
@@ -40545,7 +40542,7 @@ var render = function () {
                                     [
                                       _c("div", { staticClass: "w-full" }, [
                                         _c("p", { staticClass: "my-3" }, [
-                                          _c("b", [_vm._v("RAM:")]),
+                                          _c("b", [_vm._v("Ram:")]),
                                           _vm._v(
                                             " " +
                                               _vm._s(
@@ -40595,7 +40592,7 @@ var render = function () {
                                     [
                                       _c("div", { staticClass: "w-full" }, [
                                         _c("p", { staticClass: "my-3" }, [
-                                          _c("b", [_vm._v("CPU:")]),
+                                          _c("b", [_vm._v("İşlemci:")]),
                                           _vm._v(
                                             " " +
                                               _vm._s(
@@ -40645,7 +40642,7 @@ var render = function () {
                                     [
                                       _c("div", { staticClass: "w-full" }, [
                                         _c("p", { staticClass: "my-3" }, [
-                                          _c("b", [_vm._v("STORAGE:")]),
+                                          _c("b", [_vm._v("Depolama:")]),
                                           _vm._v(
                                             " " +
                                               _vm._s(
@@ -40695,7 +40692,7 @@ var render = function () {
                                     [
                                       _c("div", { staticClass: "w-full" }, [
                                         _c("p", { staticClass: "my-3" }, [
-                                          _c("b", [_vm._v("NETWORK:")]),
+                                          _c("b", [_vm._v("Ağ:")]),
                                           _vm._v(
                                             " " +
                                               _vm._s(
@@ -40987,7 +40984,12 @@ var render = function () {
                                     [_vm._v(_vm._s(validator.title))]
                                   ),
                                   _vm._v(" "),
-                                  _c("h3", [_vm._v(_vm._s(validator.text))]),
+                                  _c("p", {
+                                    staticClass: "html-content",
+                                    domProps: {
+                                      innerHTML: _vm._s(validator.text),
+                                    },
+                                  }),
                                 ]),
                               ]
                             )
