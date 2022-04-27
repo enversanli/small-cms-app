@@ -17,6 +17,7 @@ class FaqController extends Controller
         $this->responseHelper = $responseHelper;
     }
 
+
     public function index(){
         $questions = ServiceQuestion::whereNull('service_id')->paginate(10);
         return view('admin.faq.index')->with('questions', $questions);
